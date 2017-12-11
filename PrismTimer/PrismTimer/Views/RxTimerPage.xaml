@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PrismTimer.Views.RxTimerPage"
+             Title="{Binding Title}">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label  Grid.ColumnSpan="2" Text="{Binding Path=CurrentCount.Value, Mode=OneWay}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Large" TextColor="Green" />
+        <Button Grid.Row="1" Grid.Column="0" Text="Start" Command="{Binding StartCommand}" IsEnabled="{Binding IsStartButtonEnabled.Value}" />
+        <Button Grid.Row="1" Grid.Column="1" Text="Stop"  Command="{Binding StopCommand}" />
+
+    </Grid>
+
+</ContentPage>
